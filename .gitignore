@@ -1,0 +1,15 @@
+# Dependencies
+node_modules
+
+# Build
+build
+
+# Jest
+.jest-cache
+coverage
+
+# IDE & Editors
+.vscode
+
+# Logs
+*.log
