@@ -1,5 +1,5 @@
 {
-  "name": "@clean/fastify-adapters",
+  "name": "fastify-adapters",
   "version": "1.0.0",
   "license": "UNLICENSED",
   "private": true,
