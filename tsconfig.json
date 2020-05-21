@@ -11,6 +11,6 @@
     "moduleResolution": "Node"
   },
   "files": ["packages/core/core-env.d.ts"],
-  "exclude": ["node_modules", "build", ".jest-cache", "packages/**/*.spec.ts"],
+  "exclude": ["node_modules", "build", ".jest-cache"],
   "include": ["packages/**/*.ts"]
 }
