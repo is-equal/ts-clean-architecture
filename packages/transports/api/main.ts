@@ -1,10 +1,11 @@
 import fastify from 'fastify';
 import xml from 'fast-xml-parser';
-import type { CreateUserRequest } from '../../core/user/interactor/create-user.interactor';
+import { CreateUserRequest } from '../../core/user/dto/create-user.request';
 import { CreateUserInteractor } from '../../core/user/interactor/create-user.interactor';
 import { MemoryUserDataSource } from '../../data-sources/memory/user.datasource';
 import { CreateUserJSONPresenter } from '../../adapters/fastify/create-user-json.presenter';
 import { CreateUserXMLPresenter } from '../../adapters/fastify/create-user-xml.presenter';
+import { CustomValidator } from '../../adapters/validator';
 
 const server = fastify({
   logger: {
@@ -31,7 +32,8 @@ server.addContentTypeParser(['application/xml'], function (req, done) {
 server.post('/xml', async function (request, reply) {
   const presenter = new CreateUserXMLPresenter(reply);
   const repository = new MemoryUserDataSource();
-  const interactor = new CreateUserInteractor(repository, presenter);
+  const validator = new CustomValidator();
+  const interactor = new CreateUserInteractor(repository, presenter, validator);
 
   // Transform XML to JSON
   const { user } = xml.parse(request.body);
@@ -50,7 +52,8 @@ server.post('/xml', async function (request, reply) {
 server.post('/json', async function (request, reply) {
   const presenter = new CreateUserJSONPresenter(reply);
   const repository = new MemoryUserDataSource();
-  const interactor = new CreateUserInteractor(repository, presenter);
+  const validator = new CustomValidator();
+  const interactor = new CreateUserInteractor(repository, presenter, validator);
 
   // Create a Request DTO
   const data: CreateUserRequest = {
