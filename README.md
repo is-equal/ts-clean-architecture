@@ -1,6 +1,6 @@
 # Typescript Clean Architecture
 
-> ⚠️ This project is a example of clean architecture implementation, this isn't a truth about architecture implementation.
+> ⚠️ This project is an example of clean architecture implementation, this isn't a truth about architecture implementation.
 
 ## Layer divisions
 
