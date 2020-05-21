@@ -1,11 +1,10 @@
 import xml from 'fast-xml-parser';
 import type { FastifyReply } from 'fastify';
 import type { Presenter } from '../../core/presenter';
-import type { CreateUserResponse } from '../../core/user/interactor/create-user.interactor';
-import {
-  UserUsernameInvalidError,
-  UserPasswordInvalidError,
-} from '../../core/user/interactor/create-user.interactor';
+import { CreateUserResponse } from '../../core/user/dto/create-user.response';
+import { UserPasswordInvalidError } from '../../core/user/error/user-password-invalid.error';
+import { UserUsernameInvalidError } from '../../core/user/error/user-username-invalid.error';
+import { isInstanceOf } from '../../core/utils/instanceof.util';
 
 export class CreateUserXMLPresenter implements Presenter<CreateUserResponse> {
   private parser = new xml.j2xParser({});
@@ -27,8 +26,7 @@ export class CreateUserXMLPresenter implements Presenter<CreateUserResponse> {
 
   async throw(error: Error): Promise<void> {
     if (
-      error instanceof UserUsernameInvalidError ||
-      error instanceof UserPasswordInvalidError
+      isInstanceOf(error, [UserUsernameInvalidError, UserPasswordInvalidError])
     ) {
       // Format exception
       const response = {
