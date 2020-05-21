@@ -6,7 +6,10 @@
   ],
   "scripts": {
     "format": "prettier --write **/*.{json,ts}",
-    "lint": "eslint **/*.ts"
+    "lint": "eslint **/*.ts",
+    "core": "yarn workspace core",
+    "data-sources": "yarn workspace data-sources",
+    "api": "yarn workspace api"
   },
   "devDependencies": {
     "@types/node": "^14.0.1",
