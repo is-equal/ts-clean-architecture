@@ -1,6 +1,6 @@
 import type { UserRepository } from '../user.repository';
-import type { Presenter } from '../../presenter';
-import { Validator } from '../../validator';
+import type { Presenter } from '../../common/presenter';
+import { Validator } from '../../common/validator';
 import { UserUsernameInvalidError } from '../error/user-username-invalid.error';
 import { UserPasswordInvalidError } from '../error/user-password-invalid.error';
 import { CreateUserResponse } from '../dto/create-user.response';
