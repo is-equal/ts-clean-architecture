@@ -1,0 +1,11 @@
+{
+  "name": "ts-clean-architecture",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "application",
+  "workspaceFolder": "/workspace",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": ["dbaeumer.vscode-eslint", "prettier.prettier-vscode"],
+  "remoteUser": "node"
+}

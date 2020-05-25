@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  application:
+    user: node
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VARIANT: 12
+    command: sleep infinity
+    environment:
+      API_PORT: 3000
+    ports:
+      - 3000:3000
+    volumes:
+      - ..:/workspace:cached
+    links:
+      - database
+
+  database:
+    image: postgres
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: development
