@@ -1,4 +1,4 @@
-import { Validator } from '../core/validator';
+import { Validator } from '../core/common/validator';
 
 export class CustomValidator implements Validator {
   /**
