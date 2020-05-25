@@ -3,8 +3,8 @@ import { CreateUserResponse } from '../dto/create-user.response';
 import { UserPasswordInvalidError } from '../error/user-password-invalid.error';
 import { UserUsernameInvalidError } from '../error/user-username-invalid.error';
 import { UserRepository } from '../user.repository';
-import { Presenter } from '../../presenter';
-import { Validator } from '../../validator';
+import { Presenter } from '../../common/presenter';
+import { Validator } from '../../common/validator';
 import { User } from '../user';
 import { defineNow, getNowISO } from '../../utils/test.util';
 
