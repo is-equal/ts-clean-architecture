@@ -8,7 +8,8 @@
     "format": "prettier --write **/*.{json,ts}",
     "lint": "eslint **/*.ts",
     "core": "yarn workspace core",
-    "data-sources": "yarn workspace data-sources",
+    "db": "yarn workspace data-source-typeorm",
+    "db:memory": "yarn workspace data-source-memory",
     "api": "yarn workspace api"
   },
   "devDependencies": {

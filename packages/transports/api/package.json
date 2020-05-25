@@ -6,11 +6,14 @@
   "scripts": {
     "prebuild": "rm -rf build",
     "build": "tsc",
-    "start": "nodemon -w build build/transports/api/main.js"
+    "start": "node build/transports/api/main.js",
+    "start:watch": "nodemon -w build build/transports/api/main.js"
   },
   "dependencies": {
     "fastify": "^2.14.1",
     "nodemon": "^2.0.4",
-    "pino-pretty": "^4.0.0"
+    "pg": "^8.2.1",
+    "pino-pretty": "^4.0.0",
+    "typeorm": "^0.2.25"
   }
 }
