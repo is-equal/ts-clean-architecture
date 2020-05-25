@@ -1,5 +1,5 @@
 {
-  "name": "fastify-adapters",
+  "name": "adapter-fastify",
   "version": "1.0.0",
   "license": "UNLICENSED",
   "private": true,

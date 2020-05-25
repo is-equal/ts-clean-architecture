@@ -1,0 +1,15 @@
+{
+  "name": "data-source-typeorm",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "migration:create": "typeorm migration:create",
+    "migration:run": "typeorm migration:run",
+    "migration:revert": "typeorm migration:revert",
+    "migration:generate": "typeorm migration:generate"
+  },
+  "dependencies": {
+    "typeorm": "^0.2.25"
+  }
+}
