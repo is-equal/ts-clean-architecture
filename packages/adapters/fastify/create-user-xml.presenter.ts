@@ -1,6 +1,6 @@
 import xml from 'fast-xml-parser';
 import type { FastifyReply } from 'fastify';
-import type { Presenter } from '../../core/presenter';
+import type { Presenter } from '../../core/common/presenter';
 import { CreateUserResponse } from '../../core/user/dto/create-user.response';
 import { UserPasswordInvalidError } from '../../core/user/error/user-password-invalid.error';
 import { UserUsernameInvalidError } from '../../core/user/error/user-username-invalid.error';
