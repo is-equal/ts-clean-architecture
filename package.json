@@ -1,25 +1,45 @@
 {
   "name": "clean-architecture",
+  "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "packages/**"
-  ],
   "scripts": {
-    "format": "prettier --write **/*.{json,ts}",
     "lint": "eslint **/*.ts",
-    "core": "yarn workspace core",
-    "db": "yarn workspace data-source-typeorm",
-    "db:memory": "yarn workspace data-source-memory",
-    "api": "yarn workspace api"
+    "format": "yarn lint --fix",
+    "prebuild": "rm -rf build",
+    "build": "tsc",
+    "start": "TZ=UTC node build/api/main.js",
+    "start:watch": "TZ=UTC nodemon -w build build/api/main.js",
+    "test": "TZ=UTC jest",
+    "coverage": "TZ=UTC jest --coverage",
+    "migration:create": "typeorm migration:create",
+    "migration:run": "typeorm migration:run",
+    "migration:revert": "typeorm migration:revert",
+    "migration:generate": "typeorm migration:generate"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^3.16.0",
+    "fastify": "^2.14.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.4",
+    "pg": "^8.2.1",
+    "pino-pretty": "^4.0.0",
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.2",
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/node": "^14.0.1",
-    "@typescript-eslint/eslint-plugin": "^2.31.0",
-    "@typescript-eslint/parser": "^2.31.0",
-    "eslint": "^7.0.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "prettier": "^2.0.5",
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "@typescript-eslint/parser": "^3.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-equal": "file:./eslint-config-equal",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^25.5.4",
+    "ts-jest": "^25.5.1",
+    "typeorm": "^0.2.25",
     "typescript": "^3.9.2"
   }
 }

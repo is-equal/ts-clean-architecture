@@ -1,0 +1,53 @@
+import { j2xParser as XMLParser } from 'fast-xml-parser';
+import type { FastifyReply } from 'fastify';
+import type { Presenter } from '../../core/common/presenter';
+import { CreateUserResponse } from '../../core/user/dto/create-user.response';
+import { UserPasswordInvalidError } from '../../core/user/error/user-password-invalid.error';
+import { UserUsernameInvalidError } from '../../core/user/error/user-username-invalid.error';
+import { isInstanceOf } from '../../core/utils/instanceof.util';
+
+export class CreateUserXMLPresenter implements Presenter<CreateUserResponse> {
+  private readonly parser = new XMLParser({});
+
+  constructor(private readonly res: FastifyReply<any>) {}
+
+  async reply(data: CreateUserResponse): Promise<void> {
+    // Transform DTO to Custom Format
+    const response = { user: { username: data.username } };
+    // Transform JSON to XML
+    const responseXML = this.parser.parse(response);
+
+    // Send data
+    this.res.status(201).header('content-type', 'application/xml').send(responseXML);
+  }
+
+  async throw(error: Error): Promise<void> {
+    if (isInstanceOf(error, [UserUsernameInvalidError, UserPasswordInvalidError])) {
+      // Format exception
+      const response = {
+        exception: {
+          statusCode: 400,
+          error: { message: error.message }
+        }
+      };
+      // Transform tesponse to XML
+      const responseXML = this.parser.parse(response);
+
+      // Response XML
+      this.res.status(400).header('content-type', 'application/xml').send(responseXML);
+    }
+
+    // Format exception
+    const response = {
+      exception: {
+        statusCode: 500,
+        error: { message: 'Internal Server Error', details: error.stack }
+      }
+    };
+    // Transform response to XML
+    const responseXML = this.parser.parse(response);
+
+    // Send data
+    this.res.status(500).header('content-type', 'application/xml').send(responseXML);
+  }
+}
