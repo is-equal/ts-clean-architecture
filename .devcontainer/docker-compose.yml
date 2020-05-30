@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 
 services:
   application:
-    user: node
+    # user: node
     build:
       context: .
       dockerfile: Dockerfile

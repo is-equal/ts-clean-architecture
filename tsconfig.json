@@ -8,9 +8,18 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "outDir": "build"
   },
-  "files": ["packages/core/core-env.d.ts"],
-  "exclude": ["node_modules", "build", ".jest-cache"],
-  "include": ["packages/**/*.ts"]
+  "files": [
+    "src/core/core-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    ".jest-cache"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
 }

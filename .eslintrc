@@ -1,16 +1,10 @@
 {
-  "root": true,
-  "env": {},
-  "extends": ["plugin:@typescript-eslint/eslint-recommended"],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+  "env": {
+    "node": true,
+    "jest": true,
+    "es6": true
   },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
-  },
-  "plugins": ["@typescript-eslint", "prettier"],
-  "rules": {}
+  "extends": [
+    "equal"
+  ]
 }
