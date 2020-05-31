@@ -23,7 +23,7 @@ async function bootstrap(): Promise<void> {
   server.register(UserRouteJSON, { prefix: '/json/user' });
 
   server.listen(PORT, (err: Error | null, address: string) => {
-    if (err) {
+    if (err !== null) {
       server.log.error(err);
       process.exit(1);
     }

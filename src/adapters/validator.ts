@@ -6,7 +6,11 @@ export class CustomValidator implements Validator {
    * @param {String} value
    */
   isUsername(value: string): boolean {
-    if (!value || !value.trim()) {
+    if (value === undefined || value === null) {
+      return false;
+    }
+
+    if (value.trim() !== '') {
       return false;
     }
 
@@ -22,7 +26,7 @@ export class CustomValidator implements Validator {
    * @param {String} value
    */
   isPassword(value: string): boolean {
-    if (!value) {
+    if (value === undefined || value === null) {
       return false;
     }
 
