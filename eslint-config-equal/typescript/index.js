@@ -9,6 +9,9 @@ module.exports = {
         project: 'tsconfig.json'
       },
       rules: {
+        'import/order': ['error', {
+          groups: ['builtin', 'external', 'parent', 'sibling', 'index']
+        }],
         quotes: ['error', 'single'],
         'comma-dangle': ['error', 'never'],
         '@typescript-eslint/member-delimiter-style': [

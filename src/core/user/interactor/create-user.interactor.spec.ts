@@ -1,4 +1,3 @@
-import { CreateUserInteractor } from './create-user.interactor';
 import { CreateUserResponse } from '../dto/create-user.response';
 import { UserPasswordInvalidError } from '../error/user-password-invalid.error';
 import { UserUsernameInvalidError } from '../error/user-username-invalid.error';
@@ -7,6 +6,7 @@ import { Presenter } from '../../common/presenter';
 import { Validator } from '../../common/validator';
 import { User } from '../user';
 import { defineNow, getNowISO } from '../../utils/test.util';
+import { CreateUserInteractor } from './create-user.interactor';
 
 const userRepositoryMock = {
   find: jest.fn(),
