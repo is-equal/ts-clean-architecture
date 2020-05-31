@@ -11,15 +11,6 @@ module.exports = {
       rules: {
         quotes: ['error', 'single'],
         'comma-dangle': ['error', 'never'],
-        '@typescript-eslint/semi': ['error', 'always'],
-        '@typescript-eslint/space-before-function-paren': [
-          'error',
-          {
-            anonymous: 'never',
-            named: 'never'
-          }
-        ],
-        '@typescript-eslint/promise-function-async': 'off',
         '@typescript-eslint/member-delimiter-style': [
           'error',
           {
@@ -32,7 +23,25 @@ module.exports = {
               requireLast: false
             }
           }
-        ]
+        ],
+        '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+        '@typescript-eslint/semi': ['error', 'always'],
+        '@typescript-eslint/space-before-function-paren': [
+          'error',
+          {
+            asyncArrow: 'always',
+            anonymous: 'always',
+            named: 'never'
+          }
+        ],
+        '@typescript-eslint/promise-function-async': ['error', {
+          allowAny: false,
+          checkArrowFunctions: false,
+          checkFunctionDeclarations: false,
+          checkFunctionExpressions: false,
+          checkMethodDeclarations: false
+        }]
+
       }
     }
   ]

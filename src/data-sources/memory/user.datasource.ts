@@ -9,7 +9,7 @@ export class MemoryUserDataSource implements UserRepository {
     return (condition?: FindConditions<User>) => {
       let cond = true;
 
-      if (condition?.id) {
+      if (condition?.id !== undefined) {
         cond = cond && user.id === condition?.id;
       }
 
@@ -17,31 +17,35 @@ export class MemoryUserDataSource implements UserRepository {
     };
   }
 
-  async find(conditions?: FindManyOptions<User>): Promise<User[]> {
-    return this.users.filter((user: User): boolean => {
+  find(conditions?: FindManyOptions<User>): Promise<User[]> {
+    const data = this.users.filter((user: User): boolean => {
       if (Array.isArray(conditions?.where)) {
         return conditions?.where.map(this.filterByConditions(user)).some((cond) => cond) ?? true;
       } else {
         return this.filterByConditions(user)(conditions?.where);
       }
     });
+
+    return Promise.resolve(data);
   }
 
-  async findOne(conditions?: FindOneOptions<User>): Promise<User | undefined> {
-    return this.users.find((user: User): boolean => {
+  findOne(conditions?: FindOneOptions<User>): Promise<User | undefined> {
+    const data = this.users.find((user: User): boolean => {
       if (Array.isArray(conditions)) {
         return conditions.map(this.filterByConditions(user)).some((cond) => cond);
       } else {
         return this.filterByConditions(user)(conditions);
       }
     });
+
+    return Promise.resolve(data);
   }
 
   async save(user: DeepPartial<User>): Promise<User> {
-    if (user.id) {
+    if (user.id !== undefined) {
       let userData = await this.findOne({ id: user.id });
 
-      if (!userData) {
+      if (userData !== undefined) {
         throw new UserInvalidError(`invalid user(${user.id})`);
       }
 
@@ -58,7 +62,9 @@ export class MemoryUserDataSource implements UserRepository {
     return user as User;
   }
 
-  async delete(id: string): Promise<void> {
+  delete(id: string): Promise<void> {
     this.users = this.users.filter((user) => user.id !== id);
+
+    return Promise.resolve();
   }
 }

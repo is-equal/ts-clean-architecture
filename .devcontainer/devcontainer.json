@@ -1,13 +1,19 @@
 {
-  "name": "Node.js & Postgres",
+  "name": "Node.js 12 & PostgreSQL",
   "dockerComposeFile": "docker-compose.yml",
   "service": "application",
   "workspaceFolder": "/workspace",
   // Set *default* container specific settings.json values on container create.
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh",
+    "editor.formatOnSave": true,
     "eslint.format.enable": true,
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "[typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    }
   },
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
@@ -18,8 +24,7 @@
   // Uncomment the line below if you want to keep your containers running after VS Code shuts down.
   // "shutdownAction": "none",
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "sudo chown node node_modules",
+  "postCreateCommand": "yarn install",
   // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-  // "remoteUser": "node",
-  // "containerUser": "node"
+  "remoteUser": "node",
 }

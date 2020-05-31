@@ -1,7 +1,6 @@
 {
   "name": "eslint-config-equal",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^3.0.2",
@@ -16,6 +15,6 @@
   },
   "files": [
     "package.json",
-    "index.js"
+    "typescript"
   ]
 }
