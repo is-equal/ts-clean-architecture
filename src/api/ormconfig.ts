@@ -1,5 +1,5 @@
-import { ConnectionOptions } from 'typeorm';
 import path from 'path';
+import { ConnectionOptions } from 'typeorm';
 
 const DatabaseDataSourceDirectory = path.resolve(__dirname, '..', '..', 'data-sources', 'database');
 

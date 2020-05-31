@@ -1,6 +1,6 @@
+import { getRepository } from 'typeorm';
 import { UserRepository } from '../../core/user/user.repository';
 import { User } from '../../core/user/user';
-import { getRepository } from 'typeorm';
 import { UserEntity } from './entities/user.entity';
 
 export class UserDataSource implements UserRepository {
