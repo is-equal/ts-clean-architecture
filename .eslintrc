@@ -2,9 +2,15 @@
   "env": {
     "node": true,
     "jest": true,
-    "es6": true
+    "es6": true,
+    "browser": true
   },
   "extends": [
+    "react-app",
     "equal/typescript"
+  ],
+  "plugins": [
+    "react",
+    "react-hooks"
   ]
 }

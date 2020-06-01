@@ -9,17 +9,14 @@
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
-    "outDir": "build"
+    "outDir": "build",
+    "jsx": "react",
   },
   "files": [
     "src/core/core-env.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "build",
-    ".jest-cache"
-  ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.tsx",
   ]
 }
