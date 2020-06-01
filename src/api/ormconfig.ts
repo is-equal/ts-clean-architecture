@@ -1,7 +1,7 @@
 import path from 'path';
 import { ConnectionOptions } from 'typeorm';
 
-const DatabaseDataSourceDirectory = path.resolve(__dirname, '..', '..', 'data-sources', 'database');
+const DatabaseDataSourceDirectory = path.resolve(__dirname, '..', 'data-sources', 'database');
 
 const config: ConnectionOptions = {
   type: 'postgres',
