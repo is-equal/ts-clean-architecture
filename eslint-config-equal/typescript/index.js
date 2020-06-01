@@ -14,6 +14,7 @@ module.exports = {
         }],
         quotes: ['error', 'single'],
         'comma-dangle': ['error', 'never'],
+        '@typescript-eslint/method-signature-style': ['error', 'method'],
         '@typescript-eslint/member-delimiter-style': [
           'error',
           {

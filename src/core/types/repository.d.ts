@@ -11,8 +11,8 @@ declare interface FindManyOptions<T> {
 }
 
 declare interface Repository<T> {
-  find: (conditions?: FindManyOptions<T>) => Promise<T[]>;
-  findOne: (conditions?: FindOneOptions<T>) => Promise<T | undefined>;
-  save: (data: DeepPartial<T>) => Promise<T>;
-  delete: (id: string) => Promise<void>;
+  find(conditions?: FindManyOptions<T>): Promise<T[]>;
+  findOne(conditions?: FindOneOptions<T>): Promise<T | undefined>;
+  save(data: DeepPartial<T>): Promise<T>;
+  delete(id: string): Promise<void>;
 }

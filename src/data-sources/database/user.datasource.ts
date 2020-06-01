@@ -7,7 +7,7 @@ export class UserDataSource implements UserRepository {
   private readonly repository = getRepository(UserEntity);
 
   find(conditions?: FindManyOptions<User>): Promise<User[]> {
-    return this.repository.find({ where: conditions });
+    return this.repository.find(conditions);
   }
 
   findOne(conditions?: FindOneOptions<User>): Promise<User | undefined> {

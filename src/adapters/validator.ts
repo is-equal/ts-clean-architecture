@@ -10,7 +10,7 @@ export class CustomValidator implements Validator {
       return false;
     }
 
-    if (value.trim() !== '') {
+    if (value.trim() === '') {
       return false;
     }
 
