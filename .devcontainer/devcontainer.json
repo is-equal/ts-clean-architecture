@@ -8,12 +8,21 @@
     "terminal.integrated.shell.linux": "/bin/zsh",
     "editor.formatOnSave": true,
     "eslint.format.enable": true,
-    "[typescript]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
     },
     "[javascript]": {
       "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    }
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
   },
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
